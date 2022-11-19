@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Staff>
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>STAFF ID</th>
+				<th>STAFF NAME</th>
+				<th>STAFF WORK</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			@{
+				foreach (var staff in Model)
+				{
+					<tr>
+						<td>@staff.Id</td>
+						<td>@staff.Name</td>
+						<td>@staff.Work</td>
+						<td><a asp-action="Update" asp-controller="Staff" asp-route-id="@staff.Id" class="btn btn-primary">Update</a></td>
+						<td><a asp-action="Delete" asp-controller="Staff" asp-route-id="@staff.Id" class="btn btn-primary">Delete</a></td>
+					</tr>
+				}
+			}
+
+		</tbody>
+
+	</table>
+	<a asp-action="Create" asp-controller="Staff" class="btn btn-primary">Add New Staff</a>
+
+
+
+</body>
+</html>
